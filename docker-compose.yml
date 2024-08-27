@@ -24,6 +24,7 @@ services:
         volumes:
             - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
             - "./web:/var/www/html"
+            - "./.env:/etc/environment"
             - "tmp-cache:/var/www/html/bootstrap/cache"
             - "tmp-storage:/var/www/html/storage"
         env_file:

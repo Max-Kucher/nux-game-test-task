@@ -12,12 +12,20 @@ class Link extends Model
 
     protected $fillable = ['uuid', 'expires_at', 'active'];
 
-    protected $casts = [
-        'expires_at' => 'datetime',
-    ];
-
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class);
+    }
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'expires_at' => 'datetime',
+        ];
     }
 }
