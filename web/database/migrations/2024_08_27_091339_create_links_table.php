@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('links', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->constrained()->onDelete('cascade');
-            $table->uuid('uuid')->unique();
+            $table->uuid()->unique();
             $table->timestamp('expires_at');
             $table->boolean('active')->default(true);
             $table->timestamps();
