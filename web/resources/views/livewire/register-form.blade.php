@@ -25,7 +25,7 @@
                 placeholder="John Doe"
                 class="w-full p-2 border rounded"
             >
-            @error('username')
+            @error('userName')
                 <span class="text-red-500">
                     {{ $message }}
                 </span>
@@ -49,7 +49,7 @@
                 class="w-full p-2 border rounded"
                 x-mask="+38 (099) 999-9999"
             >
-            @error('phonenumber')
+            @error('phoneNumber')
                 <span class="text-red-500">
                     {{ $message }}
                 </span>
