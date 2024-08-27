@@ -4,10 +4,35 @@ namespace App\Services\Game;
 
 use App\Contracts\Game\Game;
 use App\Contracts\Game\GameResult;
+use App\Contracts\Game\GameResultSubscriber;
 use App\DTOs\GameResult as GameResultDTO;
+use App\Models\Modules\Customer\Models\Customer;
 
 class LuckyGame implements Game
 {
+    private Customer $customer;
+
+    public function __construct(private readonly GameResultSubscriber $subscriber)
+    { }
+
+    /**
+     * @param array $data
+     * @return void
+     * @throws \Exception
+     */
+    public function initialize(array $data): void
+    {
+        if (empty($data['uuid'])) {
+            throw new \Exception('No uuid specified');
+        }
+
+        $uuid = $data['uuid'];
+
+        $this->customer = Customer::whereHas('links', function ($query) use ($uuid) {
+            $query->where('uuid', $uuid)->where('active', true);
+        })->firstOrFail();
+    }
+
 
     public function play(): GameResult
     {
@@ -27,6 +52,9 @@ class LuckyGame implements Game
             }
         }
 
-        return new GameResultDTO($number, $win, $winAmount);
+        $gameResultDTO = new GameResultDTO($number, $win, $winAmount);
+        $this->subscriber->handle($this->customer, $gameResultDTO);
+
+        return $gameResultDTO;
     }
 }

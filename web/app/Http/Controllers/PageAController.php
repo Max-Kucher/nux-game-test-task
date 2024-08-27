@@ -11,6 +11,6 @@ class PageAController extends Controller
     {
         $link = Link::where('uuid', $uuid)->firstOrFail();
 
-        return view('pages.a-page.index', compact('link'));
+        return view('pages.a-page.index', compact('link', 'uuid'));
     }
 }

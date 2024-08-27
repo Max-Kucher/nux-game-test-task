@@ -7,9 +7,10 @@ use Livewire\Component;
 
 class ImFeelingLucky extends Component
 {
-    public $result;
-    public $win;
-    public $winAmount;
+    public string $uuid;
+    public int $result;
+    public bool $win;
+    public float $winAmount;
 
     private Game $game;
 
@@ -20,6 +21,10 @@ class ImFeelingLucky extends Component
 
     public function playGame()
     {
+        $this->game->initialize([
+            'uuid' => $this->uuid,
+        ]);
+
         $gameResult = $this->game->play();
         $this->result = $gameResult->getNumber();
         $this->win = $gameResult->isWin();
