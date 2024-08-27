@@ -1,5 +1,9 @@
 <header>
-    <nav class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
-        test
+    <nav>
+        <x-container>
+            <div class="relative flex items-center py-9">
+                <x-logo />
+            </div>
+        </x-container>
     </nav>
 </header>

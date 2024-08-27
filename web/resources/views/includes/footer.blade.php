@@ -1,5 +1,9 @@
 <footer>
-    <div class="container">
-        <p>1111</p>
-    </div>
+    <x-container>
+        <div class="relative flex items-center py-9">
+            <x-logo />
+
+            <x-copyright class="ml-auto" />
+        </div>
+    </x-container>
 </footer>

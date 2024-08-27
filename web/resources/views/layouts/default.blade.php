@@ -6,7 +6,6 @@
 
     <title>{{ config('app.name') }}</title>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
@@ -16,7 +15,7 @@
 <body>
     @include('includes.header')
 
-    <main>
+    <main class="min-h-[calc(100dvh-104px)]">
         @yield('content')
     </main>
 

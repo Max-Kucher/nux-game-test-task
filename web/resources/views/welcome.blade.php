@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-<div class="container">
-    <p>233</p>
-</div>
+<x-container>
+    <livewire:register-form />
+</x-container>
 @stop
