@@ -25,6 +25,4 @@ COPY ./etc/php/crontab /etc/cron.d/crontab
 RUN chmod 0644 /etc/cron.d/crontab \
     && crontab /etc/cron.d/crontab;
 
-RUN service cron start;
-
 CMD bash -c "cron && php-fpm"
