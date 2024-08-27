@@ -15,7 +15,7 @@ class GameResultSubscriber implements GameResultSubscriberInterface
         $result->customer_id = $customer->id;
         $result->random_number = $gameResult->getNumber();
         $result->is_win = $gameResult->isWin();
-        $result->win_amount = $gameResult->getNumber();
+        $result->win_amount = $gameResult->getWinAmount();
         $result->save();
     }
 }

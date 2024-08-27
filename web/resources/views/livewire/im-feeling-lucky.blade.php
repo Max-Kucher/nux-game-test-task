@@ -1,6 +1,6 @@
 <div>
     <form wire:submit.prevent="playGame" class="space-y-4">
-        <button type="submit" class="w-full bg-blue-500 text-2xl text-center text-white px-4 cursor-pointer py-2 rounded">
+        <button type="submit" class="w-full bg-blue-500 text-2xl text-center text-white px-4 py-2 rounded">
             I'm filling lucky!
         </button>
     </form>

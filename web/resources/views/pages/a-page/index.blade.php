@@ -6,6 +6,12 @@
             <livewire:im-feeling-lucky :uuid="$uuid" />
 
             <livewire:history :uuid="$uuid" />
+
+            <div class="flex gap-4">
+                <livewire:regenerate-a-page-link :uuid="$uuid" />
+
+                <livewire:deactivate-a-page-link :uuid="$uuid" />
+            </div>
         </div>
     </x-container>
 @stop
